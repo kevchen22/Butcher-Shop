@@ -7,11 +7,13 @@ const app = express()
 const PORT = 3000
 const Product = require('./models/Product')
 
+
 // ===== Connection to Database =====
 mongoose.connect(process.env.MONGO_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true
 })
+
 mongoose.connection.once('open', () => console.log('Connected to Mongo'))
 
 // Setup Engine
@@ -90,3 +92,5 @@ app.get('/products/:id', (req, res) => {
         res.render('Show', {product:showProduct})
     })
 })
+
+app.listen(PORT, () => console.log(`Listening to port ${PORT}`))

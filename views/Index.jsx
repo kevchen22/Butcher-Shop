@@ -14,10 +14,11 @@ class Index extends React.Component {
                 <ul>
                     {
                         products.map(product => {
-                            console.log(product)
+                            // console.log(product)
                             return (
                                 <li key={product._id}>
-                                    <p>The <a href={`/products/${product._id}`}>{product.name}'s</a> color is {product.color}.</p>
+                                    <p>The <a href={`/products/${product._id}`}>{product.name}'s</a> cut is {product.cut} and costs ${product.price} expiring on {product.expire}. Stock Remaining: {product.stock}</p>
+                                    <img src={product.img} alt="" />
                                     <form action={`/products/${product._id}?_method=DELETE`} method="POST">
                                         <input type="submit" value="DELETE" />
                                     </form>

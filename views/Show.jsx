@@ -7,7 +7,9 @@ class Show extends React.Component {
         return (
             <DefaultLayout title="Show Product">
             <div>
-                <p class="description">The {product.name}'s color is {product.color}.</p>
+                <p class="description">The {product.name}'s cut is {product.cut} and costs ${product.price} expiring on {product.expire}. Stock Remaining: {product.stock}</p>
+                <img src={product.img} alt="" />
+                <hr></hr>
                 <button><a href={'/products'}>Back</a></button>
                 <form action={`/products/${product._id}?_method=DELETE`} method="POST">
                     <input type="submit" value="DELETE" />

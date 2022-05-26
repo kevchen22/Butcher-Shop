@@ -26,10 +26,10 @@ app.use(express.urlencoded({extended:false}));
 app.use(express.static('public'))
 // Use Express middleware to parse JSON.
 app.use(express.json())
-app.use((req, res, next) => {
-    console.log('I run for all the routes.')
-    next()
-})
+// app.use((req, res, next) => {
+//     console.log('I run for all the routes.')
+//     next()
+// })
 
 // I.N.D.U.C.E.S
 // Index, New, Delete, Update, Create, Edit, Show

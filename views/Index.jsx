@@ -11,18 +11,19 @@ class Index extends React.Component {
                 <nav>
                     <a href="/products/new">Create a New Product</a>
                 </nav>
-                <ul>
+                <ul class = "container">
                     {
                         products.map(product => {
                             // console.log(product)
                             return (
-                                <li key={product._id}>
-                                    <p>The <a href={`/products/${product._id}`}>{product.name}'s</a> cut is {product.cut} and costs ${product.price} expiring on {product.expire}. Stock Remaining: {product.stock}</p>
-                                    <img src={product.img} alt="" />
-                                    <form action={`/products/${product._id}?_method=DELETE`} method="POST">
+                                <li key={product._id} class="row">
+                                    <p class="col">The <a href={`/products/${product._id}`}>{product.name}'s</a> cut is {product.cut} and costs ${product.price}. Expires on {product.expire}.
+                                    Stock Remaining: {product.stock}</p>
+                                    <a href={`/products/${product._id}`} class="col-6"> <img src={product.img} alt="" /></a>
+                                    <form action={`/products/${product._id}?_method=DELETE`} class="col" method="POST">
                                         <input type="submit" value="DELETE" />
                                     </form>
-                                    <button><a href={`/products/${product._id}/edit`}>{`Edit ${product.name}`}</a></button>
+                                    <button class="col"><a href={`/products/${product._id}/edit`}>{`Edit ${product.name}`}</a></button>
                                     <hr></hr>
                                 </li>
                             )

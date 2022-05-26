@@ -1,5 +1,6 @@
 const React = require('react')
 const DefaultLayout = require('./layout/DefaultLayout')
+import Form from "react-bootstrap/Form";
 
 class New extends React.Component {
     render() {
@@ -13,8 +14,8 @@ class New extends React.Component {
                     <input type="text" id="cut" name="cut"/>
                     <label htmlFor="price">Price:</label>
                     <input type="text" id="price" name="price" />
-                    <label htmlFor="expire">Expiry Date:</label>
-                    <input type="text" id="expire" name="expire" />
+                    <h3>EXPIRATION DATE:</h3>
+                    <Form.Control type="date" name="expire" />      
                     <label htmlFor="stock">Stock Remaining:</label>
                     <input type="text" id="stock" name="stock"/>
                     <label htmlFor="img">Image URL:</label>

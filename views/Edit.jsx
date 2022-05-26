@@ -1,14 +1,6 @@
 const React = require('react')
 const DefaultLayout = require('./layout/DefaultLayout')
-const DatePicker = require('react-datepicker')
-
-// const Example = () => {
-//     const [startDate, setStartDate] = useState(new Date());
-//     return (
-//     <DatePicker selected={startDate} onChange={(date: Date) => setStartDate(date)} />
-// );
-// };
-
+import Form from "react-bootstrap/Form";
 
 class Edit extends React.Component {
     render() {
@@ -26,6 +18,7 @@ class Edit extends React.Component {
                     {/* <label htmlFor="expire">Expiry Date:</label>
                     <input type="text" id="expire" name="expire" defaultValue={product.expire}/> */}
                     <h3>EXPIRATION DATE:</h3>
+                    <Form.Control type="date" name="expire" />
                     <label htmlFor="stock">Stock Remaining:</label>
                     <input type="text" id="stock" name="stock" defaultValue={product.stock} />
                     <label htmlFor="img">Image URL:</label>

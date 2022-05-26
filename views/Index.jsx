@@ -6,7 +6,7 @@ class Index extends React.Component {
         // Object Destructuring
         const { products } = this.props
         return (
-            <DefaultLayout title="Index">
+            <DefaultLayout title="FLYING PIG BUTCHER SHOP">
             <div>
                 <nav>
                     <a href="/products/new">Create a New Product</a>
@@ -24,6 +24,7 @@ class Index extends React.Component {
                                         <input type="submit" value="DELETE" />
                                     </form>
                                     <button class="col"><a href={`/products/${product._id}/edit`}>{`Edit ${product.name}`}</a></button>
+                                    <button class="col"><a href={`/products/${product._id}`}>{`READY TO EAT? BUY ${product.name} NOW!`}</a></button>
                                     <hr></hr>
                                 </li>
                             )

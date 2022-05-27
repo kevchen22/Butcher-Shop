@@ -6,26 +6,36 @@ class Edit extends React.Component {
     render() {
         const product = this.props.product
         return (
-            <DefaultLayout title="Edit">
-                <h1>{product.name.toUpperCase()} Edit Page</h1>
-                <form action={`/products/${product._id}?_method=PUT`} method="POST">
-                    <label htmlFor="name">Name:</label>
-                    <input type="text" id="name" name="name" defaultValue={product.name} />
-                    <label htmlFor="cut">Cut:</label>
-                    <input type="text" id="cut" name="cut" defaultValue={product.cut} />
-                    <label htmlFor="price">Price:</label>
-                    <input type="text" id="price" name="price" defaultValue={product.price} />
-                    {/* <label htmlFor="expire">Expiry Date:</label>
-                    <input type="text" id="expire" name="expire" defaultValue={product.expire}/> */}
-                    <h3>EXPIRATION DATE:</h3>
-                    <Form.Control type="date" name="expire" />
-                    <label htmlFor="stock">Stock Remaining:</label>
-                    <input type="text" id="stock" name="stock" defaultValue={product.stock} />
-                    <label htmlFor="img">Image URL:</label>
-                    <input type="text" id="img" name="img" defaultValue={product.img} />
-                    <input type="submit" value="Edit Product" />
+            <DefaultLayout title="Edit Page">
+                <form class="row g-2" action={`/products/${product._id}?_method=PUT`} method="POST">
+                    <div class="col-md-6">
+                    <label class="mb-2 form-label" htmlFor="name">Name:</label>
+                    <input class="mb-2 form-control" type="text" id="name" name="name" defaultValue={product.name} />
+                    </div>
+                    <div class="col-md-6">
+                    <label class="mb-2 form-label" htmlFor="cut">Cut:</label>
+                    <input class="mb-2 form-control" type="text" id="cut" name="cut" defaultValue={product.cut} />
+                    </div>
+                    <div class="col-md-6">
+                    <label class="mb-2 form-label" htmlFor="price">Price:</label>
+                    <input class="mb-2 form-control" type="text" id="price" name="price" defaultValue={product.price} />
+                    </div>
+                    <div class="col-md-4">
+                    <h6>Expiration Date:</h6>
+                    <Form.Control type="date" name="expire" defaultValue={product.expire} />
+                    </div>
+                    <div class="col-md-2">
+                    <label class="mb-2 form-label" htmlFor="stock">Stock Remaining:</label>
+                    <input class="mb-2 form-control" type="text" id="stock" name="stock" defaultValue={product.stock} />
+                    </div>
+                    <label class="mb-2 form-label" htmlFor="img">Image URL:</label>
+                    <input class="mb-2 form-control" type="text" id="img" name="img" defaultValue={product.img} />
+                    <input class="mb-2 form-control" type="submit" value="Edit Product" />
                 </form>
                 <button><a href={'/products'}>Back</a></button>
+                <form action={`/products/${product._id}?_method=DELETE`} class="col" method="POST">
+                    <input type="submit" value="DELETE" />
+                </form>
             </DefaultLayout>
         )
     }

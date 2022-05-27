@@ -2,18 +2,14 @@ img {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 50%;
-    height: auto;
+    width: 100%;
+    max-width: 200px;
+    height: 200px;
     border-radius: 10px;
     place-items: center;
 }
 
-form span {
-    display:block;
-    margin: 20px 0;
-}
-
-button, input, select, textarea {
-    font-family: inherit;
-    font-size: 10%;
+button {
+    max-height: 100px;
+    max-width: 100px;
 }

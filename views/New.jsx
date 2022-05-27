@@ -7,21 +7,32 @@ class New extends React.Component {
         return (
             <DefaultLayout title="Create New Product">
             <>
-                <form action="/products" method="POST">
-                    <label htmlFor="name">Name:</label>
-                    <input type="text" id="name" name="name"/>
-                    <label htmlFor="cut">Cut:</label>
-                    <input type="text" id="cut" name="cut"/>
-                    <label htmlFor="price">Price:</label>
-                    <input type="text" id="price" name="price" />
-                    <h3>EXPIRATION DATE:</h3>
-                    <Form.Control type="date" name="expire" />      
-                    <label htmlFor="stock">Stock Remaining:</label>
-                    <input type="text" id="stock" name="stock"/>
-                    <label htmlFor="img">Image URL:</label>
-                    <input type="text" id="img" name="img" />
-                    <input type="submit" value="Create Product"/>
+            <form class="row g-2" action={`/products/`} method="POST">
+                    <div class="col-md-6">
+                    <label class="mb-2 form-label" htmlFor="name">Name:</label>
+                    <input class="mb-2 form-control" type="text" id="name" name="name"/>
+                    </div>
+                    <div class="col-md-6">
+                    <label class="mb-2 form-label" htmlFor="cut">Cut:</label>
+                    <input class="mb-2 form-control" type="text" id="cut" name="cut" />
+                    </div>
+                    <div class="col-md-6">
+                    <label class="mb-2 form-label" htmlFor="price">Price:</label>
+                    <input class="mb-2 form-control" type="text" id="price" name="price" />
+                    </div>
+                    <div class="col-md-4">
+                    <h6>Expiration Date:</h6>
+                    <Form.Control type="date" name="expire" />
+                    </div>
+                    <div class="col-md-2">
+                    <label class="mb-2 form-label" htmlFor="stock">Stock Remaining:</label>
+                    <input class="mb-2 form-control" type="text" id="stock" name="stock" />
+                    </div>
+                    <label class="mb-2 form-label" htmlFor="img">Image URL:</label>
+                    <input class="mb-2 form-control" type="text" id="img" name="img" />
+                    <input class="mb-2 form-control" type="submit" value="Create New Product" />
                 </form>
+                <button><a href={'/products'}>Back</a></button>
             </>
             </DefaultLayout>
         )

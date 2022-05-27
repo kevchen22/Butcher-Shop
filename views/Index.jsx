@@ -7,31 +7,39 @@ class Index extends React.Component {
         const { products } = this.props
         return (
             <DefaultLayout title="FLYING PIG BUTCHER SHOP">
-            <div>
-                <nav>
-                    <a href="/products/new">Create a New Product</a>
-                </nav>
-                <ul class = "container">
-                    {
-                        products.map(product => {
-                            // console.log(product)
-                            return (
-                                <li key={product._id} class="row">
-                                    <p class="col">The <a href={`/products/${product._id}`}>{product.name}'s</a> cut is {product.cut} and costs ${product.price}. Expires on {product.expire}.
-                                    Stock Remaining: {product.stock}</p>
-                                    <a href={`/products/${product._id}`} class="col-6"> <img src={product.img} alt="" /></a>
-                                    <form action={`/products/${product._id}?_method=DELETE`} class="col" method="POST">
-                                        <input type="submit" value="DELETE" />
-                                    </form>
-                                    <button class="col"><a href={`/products/${product._id}/edit`}>{`Edit ${product.name}`}</a></button>
-                                    <button class="col"><a href={`/products/${product._id}`}>{`READY TO EAT? BUY ${product.name} NOW!`}</a></button>
-                                    <hr></hr>
-                                </li>
-                            )
-                        })
-                    }
-                </ul>
-            </div>
+                <div>
+                    <div class="container sticky-top">
+                        <nav class="navbar navbar-expand-sm navbar-light bg-light">
+                            <a href="/products/new">Create a New Product</a>
+                        </nav>
+                    </div>
+                    <ul class="d-flex flex-column mb-3 flex-wrap" style={{height:"100vh"}}>
+                        {
+                            products.map(product => {
+                                // console.log(product)
+                                return (
+                                    <li key={product._id} class="d-flex p-3 bg-info m-1 rounded-3 justify-content-around">
+                                       <div class="d-flex flex-column">
+                                        <p>Product: <a href={`/products/${product._id}`}>{product.name}</a></p>
+                                        <p>Cut: {product.cut}</p>
+                                        <p>Price: ${product.price}</p> 
+                                        <p>Expiration: {product.expire}</p>
+                                        <p>Stock Remaining: {product.stock}</p>   
+                                        </div>
+                                        <a href={`/products/${product._id}`}> <img src={product.img} alt="" /></a>
+                                        <div class="d-flex align-items-center">
+                                        <form action={`/products/${product._id}?_method=DELETE`} method="POST" class="form-inline">
+                                            <button class="m-2 rounded-3" type="submit">DELETE</button> 
+                                        </form>
+                                        <button class="m-2 rounded-3"><a href={`/products/${product._id}/edit`}>{`Edit ${product.name}`}</a></button>
+                                        <button class="m-2 rounded-3"><a href={`/products/${product._id}`}>{`READY TO EAT? BUY ${product.name} NOW!`}</a></button>
+                                        </div>
+                                    </li>
+                                )
+                            })
+                        }
+                    </ul>
+                </div>
             </DefaultLayout>
         )
     }

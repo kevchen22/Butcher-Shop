@@ -1,6 +1,7 @@
 const React = require('react')
 const DefaultLayout = require('./layout/DefaultLayout')
 
+
 class Index extends React.Component {
     render() {
         // Object Destructuring
@@ -17,6 +18,7 @@ class Index extends React.Component {
                         {
                             products.map(product => {
                                 // console.log(product)
+                                let productStock = product.stock === 0 ? "OUT OF STOCK" : product.stock
                                 return (
                                     <li key={product._id} class="d-flex p-3 bg-info m-1 rounded-3 justify-content-around">
                                        <div class="d-flex flex-column">
@@ -24,15 +26,15 @@ class Index extends React.Component {
                                         <p>Cut: {product.cut}</p>
                                         <p>Price: ${product.price}</p> 
                                         <p>Expiration: {product.expire}</p>
-                                        <p>Stock Remaining: {product.stock}</p>   
+                                        <p>Stock Remaining: {productStock}</p>   
                                         </div>
                                         <a href={`/products/${product._id}`}> <img src={product.img} alt="" /></a>
                                         <div class="d-flex align-items-center">
                                         <form action={`/products/${product._id}?_method=DELETE`} method="POST" class="form-inline">
-                                            <button class="m-2 rounded-3" type="submit">DELETE</button> 
+                                            <button class="m-2 rounded-3 btn btn-danger" type="submit">DELETE</button> 
                                         </form>
                                         <button class="m-2 rounded-3"><a href={`/products/${product._id}/edit`}>{`Edit ${product.name}`}</a></button>
-                                        <button class="m-2 rounded-3"><a href={`/products/${product._id}`}>{`READY TO EAT? BUY ${product.name} NOW!`}</a></button>
+                                        <button hidden={product.stock === 0} id="buy" class="m-2 rounded-3"><a href={`/products/${product._id}`}>{`READY TO EAT? BUY ${product.name} NOW!`}</a></button>
                                         </div>
                                     </li>
                                 )

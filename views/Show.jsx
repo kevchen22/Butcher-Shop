@@ -4,10 +4,11 @@ const DefaultLayout = require('./layout/DefaultLayout')
 class Show extends React.Component {
     render() {
         const product = this.props.product
+        let productStock = product.stock === 0 ? "OUT OF STOCK" : product.stock
         return (
             <DefaultLayout title="Show Product">
             <div>
-                <p class="description">The {product.name}'s cut is {product.cut} and costs ${product.price} expiring on {product.expire}. Stock Remaining: {product.stock}</p>
+                <p class="description">The {product.name}'s cut is {product.cut} and costs ${product.price} expiring on {product.expire}. Stock Remaining: {productStock}</p>
                 <img src={product.img} alt="" />
                 <hr></hr>
                 <button><a href={'/products'}>Back</a></button>

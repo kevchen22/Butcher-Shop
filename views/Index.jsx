@@ -33,8 +33,8 @@ class Index extends React.Component {
                                         <form action={`/products/${product._id}?_method=DELETE`} method="POST" class="form-inline">
                                             <button class="m-2 rounded-3 btn btn-danger" type="submit">DELETE</button> 
                                         </form>
-                                        <button class="m-2 rounded-3"><a href={`/products/${product._id}/edit`}>{`Edit ${product.name}`}</a></button>
-                                        <button hidden={product.stock === 0} id="buy" class="m-2 rounded-3"><a href={`/products/${product._id}`}>{`READY TO EAT? BUY ${product.name} NOW!`}</a></button>
+                                        <button class="btn btn-dark m-2 rounded-3"><a href={`/products/${product._id}/edit`}>{`Edit ${product.name}`}</a></button>
+                                        <button hidden={product.stock === 0} id="buy" class="btn btn-warning m-2 rounded-3"><a href={`/products/${product._id}`}>{`READY TO EAT? BUY ${product.name} NOW!`}</a></button>
                                         </div>
                                     </li>
                                 )
